@@ -1,0 +1,50 @@
+package com.Demo_Project;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.sl.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.eventusermodel.XSSFBReader.SheetIterator;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openxmlformats.schemas.spreadsheetml.x2006.main.CTWorkbook;
+
+
+public class Excel {
+	public static void main(String[] args) throws IOException {
+		
+		
+		File f = new File("C:\\Users\\God\\eclipse-workspace\\Demo_Project\\src\\xel\\work.xlsx");
+		FileInputStream fi = new FileInputStream(f);
+		Workbook wb = new XSSFWorkbook(fi);
+		org.apache.poi.ss.usermodel.Sheet sheetAt = wb.getSheetAt(0);
+		Row row = sheetAt.getRow(0);
+		Cell cell = row.getCell(0);
+		  
+		
+		org.apache.poi.ss.usermodel.CellType cellData = cell.getCellType();
+		
+		
+		if(cellData.equals(CellType.STRING)) {
+			String value = cell.getStringCellValue();
+			System.out.println(value);
+			
+		} else {
+			
+			double originalValue = cell.getNumericCellValue();
+			int value = (int) originalValue;
+			System.out.println(value);
+		}
+		
+		
+		
+		
+		
+	}
+
+}

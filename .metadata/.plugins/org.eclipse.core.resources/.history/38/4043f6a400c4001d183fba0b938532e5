@@ -1,0 +1,22 @@
+package com.Demo_Project;
+
+
+
+public class Base_Class {
+	
+	
+	
+	public static void getDriver() {
+		
+
+		
+	}
+	
+		
+	
+	
+	
+	
+	
+
+}
